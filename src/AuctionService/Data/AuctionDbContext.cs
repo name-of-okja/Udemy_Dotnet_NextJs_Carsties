@@ -1,4 +1,5 @@
 ﻿using AuctionService.Entities;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService.Data;
@@ -10,5 +11,15 @@ public class AuctionDbContext : DbContext
     }
 
     public DbSet<Auction> Auctions { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // RabbitMQ 데이터 무결성을 위한 MassTransit.EntityFrameworkCore 설정
+        modelBuilder.AddInboxStateEntity();
+        modelBuilder.AddOutboxMessageEntity();
+        modelBuilder.AddOutboxStateEntity();
+    }
 
 }
