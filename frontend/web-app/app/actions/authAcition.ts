@@ -10,7 +10,6 @@ export async function getSession() {
 export async function getCurrentUser() {
   try {
     const session = await getSession();
-
     if (!session) {
       return null;
     }
@@ -30,6 +29,5 @@ export async function getTokenWorkaround() {
         .map((c) => [c.name, c.value])
     ),
   } as NextApiRequest;
-
   return await getToken({ req });
 }
