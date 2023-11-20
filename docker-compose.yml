@@ -22,7 +22,7 @@ services:
       - 5672:5672
       - 15672:15672
   auction-svc:
-    image: okja95/auction-svc:latest
+    image: nameofokja/auction-svc:latest
     build:
       context: .
       dockerfile: src/AuctionService/Dockerfile
@@ -38,7 +38,7 @@ services:
       - postgres
       - rabbitmq
   search-svc:
-    image: okja95/search-svc:latest
+    image: nameofokja/search-svc:latest
     build:
       context: .
       dockerfile: src/SearchService/Dockerfile
@@ -54,7 +54,7 @@ services:
       - mongodb
       - rabbitmq
   identity-svc:
-    image: okja95/identity-svc:latest
+    image: nameofokja/identity-svc:latest
     build:
       context: .
       dockerfile: src/IdentityService/Dockerfile
@@ -67,7 +67,7 @@ services:
     depends_on:
       - postgres
   gateway-svc:
-    image: okja95/gateway-svc:latest
+    image: nameofokja/gateway-svc:latest
     build:
       context: .
       dockerfile: src/GatewayService/Dockerfile
