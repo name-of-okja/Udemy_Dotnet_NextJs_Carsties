@@ -29,7 +29,7 @@ export function DeleteButton({ id }: Props) {
   }
 
   return (
-    <Button color='failure' outline isProcessing={loading} onClick={doDelete}>
+    <Button color='failure' isProcessing={loading} onClick={doDelete}>
       Delete Auction
     </Button>
   );
