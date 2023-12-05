@@ -1,4 +1,4 @@
-import { numberWithCommas } from '@/lib/numberWithComma';
+import { numberWithCommas } from '@/app/lib/numberWithComma';
 
 type Props = {
   amount?: number;
