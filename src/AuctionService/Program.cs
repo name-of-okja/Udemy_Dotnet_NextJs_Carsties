@@ -1,4 +1,3 @@
-using AuctionService;
 using AuctionService.Consumers;
 using AuctionService.Data;
 using AuctionService.Services;
@@ -50,6 +49,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters.NameClaimType = "username";
     });
 
+// Test
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
+
 // Grpc
 builder.Services.AddGrpc();
 
@@ -74,3 +76,5 @@ catch (Exception ex)
 }
 
 app.Run();
+
+public partial class Program { }
